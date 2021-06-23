@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
 import 'package:tepat_public_flutter/features/core/tepat_logo_widget.dart';
+import 'package:tepat_public_flutter/features/dashboard/presentation/pages/dashboard_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,9 +13,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int selectedPageIndex = 0;
   static const List<Widget> pages = <Widget>[
-    Text('Index 0: Home'),
-    Text('Index 1: Business'),
-    Text('Index 2: School'),
+    DashboardPage(),
+    Text('Index 1: Panduan'),
+    Text('Index 2: Pengaturan'),
   ];
 
   void onBottomNavigationTapped(int index) {

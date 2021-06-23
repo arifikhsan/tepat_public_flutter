@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tepat_public_flutter/features/home/presentation/pages/home_page.dart';
 import 'package:tepat_public_flutter/l10n/l10n.dart';
 
@@ -41,6 +42,20 @@ class App extends StatelessWidget {
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: Colors.white,
           elevation: 0,
+        ),
+        textTheme: GoogleFonts.interTextTheme(
+          Theme.of(context).textTheme,
+          // headline1: TextStyle(fontSize: 64, fontWeight: FontWeight.bold),
+          // headline2: TextStyle(
+          //   fontSize: 54,
+          //   fontWeight: FontWeight.bold,
+          // ),
+          // headline3: TextStyle(
+          //   fontSize: 24,
+          //   fontWeight: FontWeight.bold,
+          // ),
+          // bodyText1: TextStyle(fontSize: 16),
+          // bodyText2: TextStyle(fontSize: 16),
         ),
       ),
       localizationsDelegates: const [
