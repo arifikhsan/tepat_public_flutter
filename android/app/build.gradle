@@ -28,6 +28,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
@@ -72,7 +73,7 @@ android {
     }
 
     flavorDimensions "default"
-    productFlavors { 
+    productFlavors {
         production {
             dimension "default"
             applicationIdSuffix ""
@@ -80,7 +81,7 @@ android {
         staging {
             dimension "default"
             applicationIdSuffix ".stg"
-        }        
+        }
         development {
             dimension "default"
             applicationIdSuffix ".dev"
@@ -105,5 +106,7 @@ flutter {
 }
 
 dependencies {
+    implementation platform('com.google.firebase:firebase-bom:28.1.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
