@@ -37,6 +37,11 @@ class App extends StatelessWidget {
           headline6: TextStyle(color: primaryColor),
         ),
         primaryColor: primaryColor,
+        scaffoldBackgroundColor: Colors.white,
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Colors.white,
+          elevation: 0,
+        ),
       ),
       localizationsDelegates: const [
         AppLocalizations.delegate,
