@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.dark_mode),
+            icon: const HeroIcon(HeroIcons.bell),
           )
         ],
       ),
