@@ -80,11 +80,13 @@ android {
         }
         staging {
             dimension "default"
-            applicationIdSuffix ".stg"
+            applicationIdSuffix ""
+            // applicationIdSuffix ".stg"
         }
         development {
             dimension "default"
-            applicationIdSuffix ".dev"
+            applicationIdSuffix ""
+            // applicationIdSuffix ".dev"
         }
     }
 
