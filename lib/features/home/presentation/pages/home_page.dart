@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:heroicons/heroicons.dart';
+import 'package:tepat_public_flutter/features/core/tepat_logo_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -25,17 +27,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.storm,
-              color: Colors.blue.shade600,
-            ),
-            const Text('Tepat'),
-          ],
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.menu),
         ),
+        title: const TepatLogoWidget(),
         actions: [
           IconButton(
             onPressed: () {},
@@ -47,17 +43,18 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedPageIndex,
         onTap: onBottomNavigationTapped,
+        selectedItemColor: Theme.of(context).primaryColor,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: HeroIcon(HeroIcons.home),
             label: 'Beranda',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: HeroIcon(HeroIcons.academicCap),
             label: 'Panduan',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: HeroIcon(HeroIcons.adjustments),
             label: 'Pengaturan',
           ),
         ],

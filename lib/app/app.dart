@@ -15,18 +15,28 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var primaryColor = Colors.blue.shade600;
+
     return MaterialApp(
       theme: ThemeData(
         // accentColor: const Color(0xFF13B9FF),
-        appBarTheme: const AppBarTheme(
-          color: Colors.white,
+        appBarTheme: AppBarTheme(
           elevation: 0,
           centerTitle: true,
+          // foregroundColor: Colors.white,
+          backgroundColor: Colors.white,
+          actionsIconTheme: IconThemeData(
+            color: primaryColor,
+          ),
+          iconTheme: IconThemeData(
+            color: primaryColor,
+          ),
         ),
         primarySwatch: Colors.grey,
         primaryTextTheme: TextTheme(
-          headline6: TextStyle(color: Colors.blue.shade600),
+          headline6: TextStyle(color: primaryColor),
         ),
+        primaryColor: primaryColor,
       ),
       localizationsDelegates: const [
         AppLocalizations.delegate,
