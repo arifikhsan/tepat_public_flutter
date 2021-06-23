@@ -152,10 +152,39 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
 }
 ```
 
+### Build APK
+
+> Development
+
+```sh
+flutter build apk --debug --flavor development --target lib/main_development.dart
+flutter build apk --release --flavor development --target lib/main_development.dart
+```
+
+> Staging
+
+```sh
+flutter build apk --debug --flavor staging --target lib/main_staging.dart
+flutter build apk --release --flavor staging --target lib/main_staging.dart
+```
+
+> Production
+
+```sh
+flutter build apk --debug --flavor production --target lib/main_production.dart
+flutter build apk --release --flavor production --target lib/main_production.dart
+```
+
 ### Change package name
 
 ```bash
 flutter pub run change_app_package_name:main com.new.package.name
+```
+
+### Gradlew sync
+
+```bat
+android\gradlew --refresh-dependencies
 ```
 
 [coverage_badge]: coverage_badge.svg
