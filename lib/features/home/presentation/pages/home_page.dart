@@ -1,7 +1,25 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int selectedPageIndex = 0;
+  static const List<Widget> pages = <Widget>[
+    Text('Index 0: Home'),
+    Text('Index 1: Business'),
+    Text('Index 2: School'),
+  ];
+
+  void onBottomNavigationTapped(int index) {
+    setState(() {
+      selectedPageIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +43,25 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
-      body: const Center(child: Text('Home pageeee')),
+      body: Center(child: pages.elementAt(selectedPageIndex)),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectedPageIndex,
+        onTap: onBottomNavigationTapped,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Beranda',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'Panduan',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Pengaturan',
+          ),
+        ],
+      ),
     );
   }
 }
