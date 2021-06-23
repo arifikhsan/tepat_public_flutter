@@ -1,4 +1,4 @@
-package com.tepat.public
+package com.tepat.app_public
 
 import io.flutter.embedding.android.FlutterActivity
 
