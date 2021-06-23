@@ -44,8 +44,19 @@ class App extends StatelessWidget {
           elevation: 0,
         ),
         textTheme: GoogleFonts.interTextTheme(
-          Theme.of(context).textTheme,
-          // headline1: TextStyle(fontSize: 64, fontWeight: FontWeight.bold),
+          Theme.of(context).textTheme.copyWith(
+                headline1: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue.shade900,
+                ),
+                headline6: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey.shade900,
+                ),
+                bodyText1: const TextStyle(fontSize: 16),
+              ),
           // headline2: TextStyle(
           //   fontSize: 54,
           //   fontWeight: FontWeight.bold,
@@ -54,7 +65,6 @@ class App extends StatelessWidget {
           //   fontSize: 24,
           //   fontWeight: FontWeight.bold,
           // ),
-          // bodyText1: TextStyle(fontSize: 16),
           // bodyText2: TextStyle(fontSize: 16),
         ),
       ),
