@@ -28,3 +28,6 @@ jobs:
       - name: Check Code Coverage
         # uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
         run: echo 'yes :D'
+
+      - name: Build APK Debug
+        run: flutter build apk --debug --flavor development --target lib/main_development.dart
