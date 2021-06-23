@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tepat.app_public">
    <application
-        android:label="Tepat Public Flutter"
+        android:label="Tepat"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
