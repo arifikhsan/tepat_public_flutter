@@ -12,7 +12,7 @@ class DashboardPage extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              'Temukan teknisi listrik yang cepat dan tanggap',
+              'Temukan teknisi listrik dengan cepat',
               style: Theme.of(context).textTheme.headline1,
             ),
           ],
