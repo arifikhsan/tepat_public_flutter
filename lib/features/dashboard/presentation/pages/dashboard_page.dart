@@ -15,6 +15,35 @@ class DashboardPage extends StatelessWidget {
               'Temukan teknisi listrik dengan cepat',
               style: Theme.of(context).textTheme.headline1,
             ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                children: [
+                  Text(
+                    'Butuh bantuan teknisi listrik? Daftar sekarang!',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Daftar sebagai pelanggan'),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              child: Column(
+                children: [
+                  Text(
+                    'Anda adalah teknisi listrik? Ayo bergabung menjadi mitra Tepat!',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Daftar sebagai teknisi'),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
