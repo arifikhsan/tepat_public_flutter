@@ -53,8 +53,8 @@ jobs:
         run: |
           last_commit_id=$(git rev-parse --short HEAD)
           cd build/app/outputs/flutter-apk/
-          new_apk_name=app-production-debug-${last_commit_id}.apk
-          cp app-production-debug.apk $new_apk_name
+          new_apk_name=app-production-release-${last_commit_id}.apk
+          cp app-production-release.apk $new_apk_name
           # curl -F document=@"$new_apk_name" https://api.telegram.org/bot{{TELEGRAM_TOKEN}}/sendDocument?chat_id={{SKYNET_CHAT_ID}}
           # curl https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument?chat_id=${SKYNET_CHAT_ID}&document=$new_apk_name
 
@@ -67,4 +67,4 @@ jobs:
             New Release!!!
             Commit name: ${{ github.event.head_commit.message }}
             '''
-          document: build/app/outputs/flutter-apk/app-production-debug-$(git rev-parse --short HEAD).apk
+          document: build/app/outputs/flutter-apk/app-production-release-$(git rev-parse --short HEAD).apk
