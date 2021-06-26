@@ -38,4 +38,5 @@ jobs:
           cd build/app/outputs/flutter-apk/
           new_apk_name=app-development-debug-${last_commit_id}.apk
           mv app-development-debug.apk $new_apk_name
-          curl https://api.telegram.org/bot{{TELEGRAM_TOKEN}}/sendDocument?chat_id={{SKYNET_CHAT_ID}}&document=$new_apk_name
+          # curl -F document=@"$new_apk_name" https://api.telegram.org/bot{{TELEGRAM_TOKEN}}/sendDocument?chat_id={{SKYNET_CHAT_ID}}
+          curl https://api.telegram.org/bot$TELEGRAM_TOKEN/sendDocument?chat_id=$SKYNET_CHAT_ID&document=$new_apk_name
