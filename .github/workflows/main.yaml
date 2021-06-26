@@ -47,5 +47,5 @@ jobs:
           to: ${{ secrets.SKYNET_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: ${{ github.event.head_commit.message }}
-          # document: build/app/outputs/flutter-apk/app-development-debug-$(git rev-parse --short HEAD).apk
-          document: build/app/outputs/flutter-apk/app-development-debug.apk
+          document: build/app/outputs/flutter-apk/app-development-debug-$(git rev-parse --short HEAD).apk
+          # document: build/app/outputs/flutter-apk/app-development-debug.apk
