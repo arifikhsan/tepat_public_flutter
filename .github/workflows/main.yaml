@@ -58,6 +58,12 @@ jobs:
           # curl -F document=@"$new_apk_name" https://api.telegram.org/bot{{TELEGRAM_TOKEN}}/sendDocument?chat_id={{SKYNET_CHAT_ID}}
           # curl https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument?chat_id=${SKYNET_CHAT_ID}&document=$new_apk_name
 
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: App
+          path: ${{ github.workspace }}/build/app/outputs/flutter-apk/app-production-release.apk
+
       - name: Upload APK to Telegram
         uses: appleboy/telegram-action@master
         with:
@@ -67,4 +73,5 @@ jobs:
             New Release!!!
             Commit name: ${{ github.event.head_commit.message }}
             '''
-          document: ${{ github.workspace }}build/app/outputs/flutter-apk/app-production-release-$(git rev-parse --short HEAD).apk
+          # document: ${{ github.workspace }}/build/app/outputs/flutter-apk/app-production-release-$(git rev-parse --short HEAD).apk
+          document: ${{ github.workspace }}/build/app/outputs/flutter-apk/app-production-release.apk
