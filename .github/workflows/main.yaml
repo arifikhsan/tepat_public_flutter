@@ -63,5 +63,8 @@ jobs:
         with:
           to: ${{ secrets.SKYNET_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: New Release!!! ${{ github.event.head_commit.message }}
+          message: '''
+            New Release!!!
+            Commit name: ${{ github.event.head_commit.message }}
+            '''
           document: build/app/outputs/flutter-apk/app-production-debug-$(git rev-parse --short HEAD).apk
