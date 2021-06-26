@@ -36,6 +36,6 @@ jobs:
         run: |
           last_commit_id=$(git rev-parse --short HEAD)
           cd build/app/outputs/flutter-apk/
-          new_apk_name=app-development-release-${last_commit_id}.apk
-          mv app-development-release.apk $new_apk_name
+          new_apk_name=app-development-debug-${last_commit_id}.apk
+          mv app-development-debug.apk $new_apk_name
           curl https://api.telegram.org/bot{{TELEGRAM_TOKEN}}/sendDocument?chat_id={{SKYNET_CHAT_ID}}&document=$new_apk_name
