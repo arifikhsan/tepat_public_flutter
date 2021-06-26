@@ -32,12 +32,29 @@ jobs:
       - name: Build APK Debug
         run: flutter build apk --debug --flavor development --target lib/main_development.dart
 
+      - name: Setup Keystore
+        env:
+          SIGNING_KEY: ${{ secrets.ANDROID_KEYSTORE }}
+        run: |
+          echo $SIGNING_KEY | base64 -di > android/app/key.jks
+          pwd
+          ls android/app
+
+      - name: build release
+        env:
+          ANDROID_KEYSTORE_ALIAS: upload
+          ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD: 123456
+          ANDROID_KEYSTORE_PASSWORD: 123456
+          ANDROID_KEYSTORE_PATH: key.jks
+        run: |
+          flutter build apk --release --flavor production --target lib/main_production.dart
+
       - name: Rename APK
         run: |
           last_commit_id=$(git rev-parse --short HEAD)
           cd build/app/outputs/flutter-apk/
-          new_apk_name=app-development-debug-${last_commit_id}.apk
-          cp app-development-debug.apk $new_apk_name
+          new_apk_name=app-production-debug-${last_commit_id}.apk
+          cp app-production-debug.apk $new_apk_name
           # curl -F document=@"$new_apk_name" https://api.telegram.org/bot{{TELEGRAM_TOKEN}}/sendDocument?chat_id={{SKYNET_CHAT_ID}}
           # curl https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument?chat_id=${SKYNET_CHAT_ID}&document=$new_apk_name
 
@@ -47,5 +64,4 @@ jobs:
           to: ${{ secrets.SKYNET_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: New Release!!! ${{ github.event.head_commit.message }}
-          document: build/app/outputs/flutter-apk/app-development-debug-$(git rev-parse --short HEAD).apk
-          # document: build/app/outputs/flutter-apk/app-development-debug.apk
+          document: build/app/outputs/flutter-apk/app-production-debug-$(git rev-parse --short HEAD).apk
