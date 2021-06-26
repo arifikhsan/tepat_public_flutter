@@ -61,8 +61,8 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
-          name: App
-          path: ${{ github.workspace }}/build/app/outputs/flutter-apk/app-production-release.apk
+          name: app-production-release-$(git rev-parse --short HEAD)
+          path: ${{ github.workspace }}/build/app/outputs/flutter-apk/app-production-release-$(git rev-parse --short HEAD).apk
 
       - name: Upload APK to Telegram
         uses: appleboy/telegram-action@master
@@ -72,5 +72,5 @@ jobs:
           message: |
             New Release!!!
             Commit name: ${{ github.event.head_commit.message }}
-          # document: ${{ github.workspace }}/build/app/outputs/flutter-apk/app-production-release-$(git rev-parse --short HEAD).apk
-          document: ${{ github.workspace }}/build/app/outputs/flutter-apk/app-production-release.apk
+          document: ${{ github.workspace }}/build/app/outputs/flutter-apk/app-production-release-$(git rev-parse --short HEAD).apk
+          # document: ${{ github.workspace }}/build/app/outputs/flutter-apk/app-production-release.apk
