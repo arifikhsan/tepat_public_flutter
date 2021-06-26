@@ -38,6 +38,8 @@ jobs:
           cd build/app/outputs/flutter-apk/
           new_apk_name=app-development-debug-${last_commit_id}.apk
           mv app-development-debug.apk $new_apk_name
+          export NEW_APK_NAME=$new_apk_name
+          echo "::set-env name=NEW_APK_NAME::$NEW_APK_NAME"
           # curl -F document=@"$new_apk_name" https://api.telegram.org/bot{{TELEGRAM_TOKEN}}/sendDocument?chat_id={{SKYNET_CHAT_ID}}
           # curl https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument?chat_id=${SKYNET_CHAT_ID}&document=$new_apk_name
 
@@ -48,4 +50,4 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: send photo message
           # document: build/app/outputs/flutter-apk/app-development-debug-$(git rev-parse --short HEAD).apk
-          document: build/app/outputs/flutter-apk/$new_apk_name
+          document: build/app/outputs/flutter-apk/$NEW_APK_NAME
