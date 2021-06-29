@@ -175,6 +175,12 @@ flutter build apk --debug --flavor production --target lib/main_production.dart
 flutter build apk --release --flavor production --target lib/main_production.dart
 ```
 
+### Build APK analyze
+
+```sh
+flutter build apk --release --flavor production --target lib/main_production.dart --target-platform android-arm64 --analyze-size
+```
+
 ### Change package name
 
 ```bash
